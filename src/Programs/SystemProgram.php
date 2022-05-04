@@ -8,6 +8,8 @@ use Tighten\SolanaPhpSdk\PublicKey;
 use Tighten\SolanaPhpSdk\TransactionInstruction;
 use Tighten\SolanaPhpSdk\Util\AccountMeta;
 
+use Illuminate\Support\Facades\Log;
+
 class SystemProgram extends Program
 {
     const PROGRAM_INDEX_CREATE_ACCOUNT = 0;
@@ -93,6 +95,8 @@ class SystemProgram extends Program
             new AccountMeta($fromPubkey, true, true),
             new AccountMeta($toPublicKey, false, true),
         ];
+
+        Log::info('SystemProgram class file!');
 
         return new TransactionInstruction(
             static::programId(),
